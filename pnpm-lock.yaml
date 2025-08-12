@@ -7,26 +7,16 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@astrojs/starlight':
-        specifier: ^0.35.2
-        version: 0.35.2(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2))
-      astro:
-        specifier: ^5.6.1
-        version: 5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)
-      globals:
-        specifier: 16.3.0
-        version: 16.3.0
-      sharp:
-        specifier: ^0.34.2
-        version: 0.34.3
-      wrangler:
-        specifier: ^4.29.0
-        version: 4.29.0
     devDependencies:
+      '@astrojs/starlight':
+        specifier: 0.35.2
+        version: 0.35.2(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2))
       '@eslint/js':
         specifier: 9.33.0
         version: 9.33.0
+      astro:
+        specifier: 5.12.9
+        version: 5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)
       eslint:
         specifier: 9.33.0
         version: 9.33.0
@@ -39,6 +29,9 @@ importers:
       eslint-plugin-react:
         specifier: 7.37.5
         version: 7.37.5(eslint@9.33.0)
+      globals:
+        specifier: 16.3.0
+        version: 16.3.0
       prettier:
         specifier: 3.6.2
         version: 3.6.2
@@ -48,9 +41,15 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: 0.6.14
         version: 0.6.14(prettier-plugin-astro@0.14.1)(prettier@3.6.2)
+      sharp:
+        specifier: 0.34.3
+        version: 0.34.3
       typescript-eslint:
         specifier: 8.39.1
         version: 8.39.1(eslint@9.33.0)(typescript@5.9.2)
+      wrangler:
+        specifier: 4.29.0
+        version: 4.29.0
 
 packages:
 
@@ -4091,7 +4090,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 24.2.1
 
   '@types/unist@2.0.11': {}
 
