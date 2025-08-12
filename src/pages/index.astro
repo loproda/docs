@@ -1,9 +1,8 @@
 ---
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
-import { FourCardGrid, ListCard } from "../components";
 import Penguin from "./../assets/penguin.png";
 
-const frontmatter = {
+const frontmatter: any = {
     title: "Bienvenidos a Loproda",
     description: "Explora guías y tutoriales para comenzar a construir en la plataforma de Loproda",
 	template: "splash",
@@ -23,107 +22,5 @@ const frontmatter = {
         ]
 	},
 } as const
-
-const topCards = [
-	{
-		title: "Featured",
-		links: [
-			{ text: "Add web analytics", href: "/web-analytics/" },
-			{
-				text: "Troubleshoot errors",
-				href: "/support/troubleshooting/http-status-codes/",
-			},
-			{ text: "Register a domain", href: "/registrar/" },
-			{ text: "Setup 1.1.1.1", href: "/1.1.1.1/setup/" },
-			{
-				text: "Get started with Cloudflare",
-				href: "/learning-paths/get-started/concepts/",
-			},
-		],
-		cta: {
-			text: "View all products",
-			href: "/products/",
-		},
-	},
-	{
-		title: "Developer Products",
-		links: [
-			{ text: "Workers", href: "/workers/" },
-			{ text: "Pages", href: "/pages/" },
-			{ text: "R2", href: "/r2/" },
-			{ text: "Images", href: "/images/" },
-			{ text: "Stream", href: "/stream/" },
-		],
-		cta: {
-			text: "View all developer products",
-			href: "/products/?product-group=Developer+platform",
-		},
-	},
-	{
-		title: "AI Products",
-		links: [
-			{ text: "AutoRAG", href: "/autorag/" },
-			{ text: "Workers AI", href: "/workers-ai/" },
-			{ text: "Vectorize", href: "/vectorize/" },
-			{ text: "AI Gateway", href: "/ai-gateway/" },
-			{
-				text: "AI Playground",
-				href: "https://playground.ai.cloudflare.com/",
-				target: "_blank",
-			},
-		],
-		cta: {
-			text: "View all AI products",
-			href: "/products/?product-group=AI",
-		},
-	},
-	{
-		title: "Zero Trust",
-		links: [
-			{ text: "Access", href: "/cloudflare-one/policies/access/" },
-			{ text: "Tunnel", href: "/cloudflare-one/connections/connect-networks/" },
-			{ text: "Gateway", href: "/cloudflare-one/policies/gateway/" },
-			{
-				text: "Browser Isolation",
-				href: "/cloudflare-one/policies/browser-isolation/",
-			},
-			{
-				text: "Replace your VPN",
-				href: "/learning-paths/replace-vpn/concepts/",
-			},
-		],
-		cta: {
-			text: "View all Cloudflare One products",
-			href: "/products/?product-group=Cloudflare+One",
-		},
-	},
-];
 ---
-<StarlightPage frontmatter={frontmatter}>
-    <FourCardGrid>
-		{
-			topCards.map((card) => (
-				<ListCard title={card.title}>
-					<ul>
-						{card.links.map((link) => (
-							<li>
-								<a
-									href={link.href}
-									target={link.target}
-									class="text-black! hover:text-accent! dark:text-accent-high! dark:hover:text-black!"
-								>
-									{link.text}
-								</a>
-							</li>
-						))}
-					</ul>
-					<p>
-						<strong>
-							<a href={card.cta.href}>{card.cta.text}</a>
-						</strong>
-					</p>
-				</ListCard>
-			))
-		}
-	</FourCardGrid>
-</StarlightPage>
+<StarlightPage frontmatter={frontmatter}></StarlightPage>

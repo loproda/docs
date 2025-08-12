@@ -1,0 +1,108 @@
+---
+import Default from "@astrojs/starlight/components/Footer.astro";
+import { Icon } from "@astrojs/starlight/components";
+import type { StarlightIcon } from "@astrojs/starlight/types";
+
+const groups = Object.entries({
+	Recursos: [
+		{
+			text: "¿Eres nuevo en Loproda?",
+			href: "/fundamentals/",
+		},
+		{ text: "Productos", href: "/products/" },
+		{ text: "Novedades", href: "https://loproda.com/blog" },
+		{ text: "Open Source", href: "https://github.com/loproda" },
+	],
+	Soporte: [
+		{ text: "Contacto", href: "malito:fvcoder1@gmail.com" },
+		{ text: "Atención al cliente", href: "malito:fvcoder1@gmail.com" },
+	],
+	Comunidad: [
+		{
+			text: "GitHub",
+			href: "https://github.com/loproda/docs",
+			icon: "github",
+		},
+	],
+});
+
+const links = Object.entries({
+	"Política de privacidad": "https://loproda.com/privacy/",
+	"Términos de uso": "https://www.cloudflare.com/website-terms/",
+	"Informar problemas de seguridad": "malito:fvcoder1@gmail.com?subject=report-issue",
+});
+
+const splash = Astro.locals.starlightRoute.entry.data.template === "splash";
+---
+{!splash && <Default />}
+<div class="w-full">
+	<div class="grid grid-cols-2 gap-8 pt-6 pb-10 lg:grid-cols-3">
+		{
+			groups.map(([title, items]) => (
+				<ul class="flex w-full list-none flex-col gap-3 pl-0">
+					<li class="text-xs leading-5">
+						<strong>{title}</strong>
+					</li>
+					{items.map((link) => (
+						<li class="text-sm">
+							<a
+								href={link.href}
+								class="flex items-center gap-2 text-black! no-underline"
+							>
+								{"icon" in link && <Icon name={link.icon as StarlightIcon} />}
+								{link.text}
+							</a>
+						</li>
+					))}
+				</ul>
+			))
+		}
+	</div>
+	<div>
+		<ul
+			class="text-cl1-gray-4! dark:text-cl1-gray-7! flex list-inside flex-wrap items-center justify-center gap-3 gap-y-4 pl-0 text-xs"
+		>
+			<li class="list-none">© 2025 Loproda</li>
+			{
+				links.map(([text, href]) => (
+					<li>
+						<a
+							href={href}
+							class="text-cl1-gray-4! dark:text-cl1-gray-7! no-underline"
+						>
+							{text}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>
+
+<style>
+	:global(footer) {
+		flex-direction: column-reverse !important;
+
+		.meta {
+			margin-top: 0 !important;
+		}
+	}
+
+	.feedback-prompt {
+		h2 {
+			color: var(--sl-color-white);
+			font-size: var(--sl-text-h5);
+			font-weight: 600;
+			line-height: var(--sl-line-height-headings);
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	@media (min-width: 72rem) {
+		html[data-has-toc] {
+			.feedback-prompt {
+				display: none;
+			}
+		}
+	}
+</style>
