@@ -1,9 +1,16 @@
-// @ts-check
+// @ts-nocheck
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 import tailwindcss from '@tailwindcss/vite';
 import { readdir } from "fs/promises";
+
+import rehypeTitleFigure from "rehype-title-figure";
+import rehypeMermaid from "./src/plugins/rehype/mermaid.ts";
+import rehypeAutolinkHeadings from "./src/plugins/rehype/autolink-headings.ts";
+import rehypeExternalLinks from "./src/plugins/rehype/external-links.ts";
+import rehypeHeadingSlugs from "./src/plugins/rehype/heading-slugs.ts";
+import rehypeShiftHeadings from "./src/plugins/rehype/shift-headings.ts";
 
 async function autoGenStyles() {
 	const styles = (
@@ -29,6 +36,18 @@ export default defineConfig({
     i18n: {
         defaultLocale: "es",
         locales: ["es"]
+    },
+    markdown: {
+		smartypants: false,
+        rehypePlugins: [
+			rehypeMermaid,
+			rehypeExternalLinks,
+			rehypeHeadingSlugs,
+			rehypeAutolinkHeadings,
+			// @ts-expect-error plugins types are outdated but functional
+			rehypeTitleFigure,
+			rehypeShiftHeadings,
+		],
     },
     integrations: [
         starlight({
