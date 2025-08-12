@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import starlightDocSearch from "@astrojs/starlight-docsearch";
 import starlightImageZoom from "starlight-image-zoom";
 import liveCode from "astro-live-code";
 import starlightLinksValidator from "starlight-links-validator";
@@ -60,7 +59,7 @@ const runLinkCheck = process.env.RUN_LINK_CHECK || false;
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://developers.cloudflare.com",
+	site: "https://docs.loproda.com",
 	markdown: {
 		smartypants: false,
 		remarkPlugins: [remarkValidateImages],
@@ -74,23 +73,12 @@ export default defineConfig({
 			rehypeShiftHeadings,
 		],
 	},
-	image: {
-		service: {
-			entrypoint: "astro/assets/services/sharp",
-			config: {
-				limitInputPixels: false,
-			},
-		},
-	},
 	experimental: {
 		contentIntellisense: true,
 	},
-	server: {
-		port: 1111,
-	},
 	integrations: [
 		starlight({
-			title: "Cloudflare Docs",
+			title: "Loproda Docs",
 			logo: {
 				src: "./src/assets/logo.svg",
 			},
@@ -99,18 +87,11 @@ export default defineConfig({
 				{
 					label: "GitHub",
 					icon: "github",
-					href: "https://github.com/cloudflare/cloudflare-docs",
-				},
-				{ label: "X.com", icon: "x.com", href: "https://x.com/cloudflare" },
-				{
-					label: "YouTube",
-					icon: "youtube",
-					href: "https://www.youtube.com/cloudflare",
+					href: "https://github.com/loproda/docs",
 				},
 			],
 			editLink: {
-				baseUrl:
-					"https://github.com/cloudflare/cloudflare-docs/edit/production/",
+				baseUrl: "https://github.com/loproda/docs/edit/production/",
 			},
 			components: {
 				Banner: "./src/components/overrides/Banner.astro",
@@ -158,9 +139,6 @@ export default defineConfig({
 							}),
 						]
 					: []),
-				starlightDocSearch({
-					clientOptionsModule: "./src/plugins/docsearch/index.ts",
-				}),
 				starlightImageZoom(),
 			],
 			lastUpdated: true,

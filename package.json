@@ -29,6 +29,7 @@
 		"@actions/github": "6.0.1",
 		"@apidevtools/swagger-parser": "12.0.0",
 		"@astrojs/check": "0.9.4",
+		"@astrojs/mdx": "4.3.3",
 		"@astrojs/react": "4.2.5",
 		"@astrojs/rss": "4.0.12",
 		"@astrojs/sitemap": "3.4.2",
@@ -42,6 +43,7 @@
 		"@expressive-code/plugin-line-numbers": "0.41.3",
 		"@floating-ui/react": "0.27.15",
 		"@iarna/toml": "2.2.5",
+		"@iconify/utils": "3.0.1",
 		"@lottiefiles/dotlottie-react": "0.14.4",
 		"@marsidev/react-turnstile": "1.1.0",
 		"@microsoft/fetch-event-source": "2.0.1",
@@ -77,6 +79,8 @@
 		"globals": "16.3.0",
 		"hast-util-heading-rank": "3.0.0",
 		"hast-util-select": "6.0.4",
+		"hast-util-to-string": "3.0.1",
+		"hast-util-to-text": "4.0.2",
 		"hastscript": "9.0.1",
 		"he": "1.2.0",
 		"jsonc-parser": "3.3.1",
@@ -117,6 +121,7 @@
 		"remark-stringify": "11.0.0",
 		"sharp": "0.34.3",
 		"solarflare-theme": "0.0.5",
+		"space-separated-tokens": "2.0.2",
 		"starlight-image-zoom": "0.13.0",
 		"starlight-links-validator": "0.17.0",
 		"starlight-package-managers": "0.11.0",
@@ -132,6 +137,7 @@
 		"typescript-eslint": "8.38.0",
 		"unified": "11.0.5",
 		"unist-util-visit": "5.0.0",
+		"unist-util-visit-parents": "6.0.1",
 		"vite-tsconfig-paths": "5.1.4",
 		"vitest": "2.1.6",
 		"wrangler": "4.26.1"
@@ -140,7 +146,7 @@
 		"node": ">=22"
 	},
 	"volta": {
-		"node": "22.9.0"
+		"node": "22.16.0"
 	},
-	"packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+	"packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
 }
