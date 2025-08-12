@@ -1,0 +1,52 @@
+---
+pcx_content_type: concept
+title: GraphQL
+sidebar:
+  order: 1
+banner:
+  content: We recommend using <strong>Cloudflare Workers</strong> for new projects. For existing Pages projects, see our <a href="/workers/static-assets/migrate-from-pages/">migration guide</a> and <a href="/workers/static-assets/migrate-from-pages/#compatibility-matrix">compatibility matrix</a>.
+  type: note
+  dismissible:
+    id: pages-migrate-to-workers
+---
+
+import { PackageManagers } from "~/components";
+
+The GraphQL Pages Plugin creates a GraphQL server which can respond to `application/json` and `application/graphql` `POST` requests. It responds with [the GraphQL Playground](https://github.com/graphql/graphql-playground) for `GET` requests.
+
+## Installation
+
+<PackageManagers pkg="@cloudflare/pages-plugin-graphql" />
+
+## Usage
+
+```typescript
+import graphQLPlugin from "@cloudflare/pages-plugin-graphql";
+import {
+	graphql,
+	GraphQLSchema,
+	GraphQLObjectType,
+	GraphQLString,
+} from "graphql";
+
+const schema = new GraphQLSchema({
+	query: new GraphQLObjectType({
+		name: "RootQueryType",
+		fields: {
+			hello: {
+				type: GraphQLString,
+				resolve() {
+					return "Hello, world!";
+				},
+			},
+		},
+	}),
+});
+
+export const onRequest: PagesFunction = graphQLPlugin({
+	schema,
+	graphql,
+});
+```
+
+This Plugin only exposes a single route, so wherever it is mounted is wherever it will be available. In the above example, because it is mounted in `functions/graphql.ts`, the server will be available on `/graphql` of your Pages project.

@@ -3,8 +3,7 @@ import type { StarlightIcon } from "@astrojs/starlight/types";
 import { Dismissible, Dismisser } from "../Dismissible";
 import { Icon } from "@astrojs/starlight/components";
 
-const data = Astro.locals.starlightRoute.entry.data;
-const banner: any = data.banner;
+const { banner } = Astro.locals.starlightRoute.entry.data;
 ---
 
 {
