@@ -1,0 +1,43 @@
+@layer base, starlight, theme, components, utilities;
+
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme) source(none);
+@import 'tailwindcss/utilities.css' layer(utilities) source(none);
+
+@source "../**/*.{astro,html,js,jsx,ts,tsx,css}";
+@source not "../content/";
+
+@layer base {
+	pre {
+		white-space: pre-wrap;
+	}
+
+    :root {
+        --sl-color-accent-low: #002544;
+        --sl-color-accent: #006db8;
+        --sl-color-accent-high: #a5cdf5;
+        --sl-color-white: #ffffff;
+        --sl-color-gray-1: #e5effa;
+        --sl-color-gray-2: #becad7;
+        --sl-color-gray-3: #8fa7c0;
+        --sl-color-gray-4: #455a71;
+        --sl-color-gray-5: #263a4f;
+        --sl-color-gray-6: #15283c;
+        --sl-color-black: #101922;
+    }
+    
+    :root[data-theme='light'] {
+        --sl-color-accent-low: #bddbf9;
+        --sl-color-accent: #00538f;
+        --sl-color-accent-high: #00345c;
+        --sl-color-white: #101922;
+        --sl-color-gray-1: #15283c;
+        --sl-color-gray-2: #263a4f;
+        --sl-color-gray-3: #455a71;
+        --sl-color-gray-4: #778ea6;
+        --sl-color-gray-5: #b7c3d0;
+        --sl-color-gray-6: #e5effa;
+        --sl-color-gray-7: #f2f7fc;
+        --sl-color-black: #ffffff;
+    }
+}
