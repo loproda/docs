@@ -14,9 +14,9 @@ export const GET: APIRoute = async ({ locals }) => {
 	});
 
 	return rss({
-		title: "Cloudflare changelogs",
-		description: `Variant of the Cloudflare changelog with Markdown content rather than HTML`,
-		site: "https://developers.cloudflare.com/changelog/",
+		title: "Historial de cambios de Loproda",
+		description: `Variante del registro de cambios de Loproda con contenido Markdown en lugar de HTML`,
+		site: "https://docs.loproda.com/changelog/",
 		items,
 	});
 };

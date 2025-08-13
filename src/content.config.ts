@@ -112,8 +112,4 @@ export const collections = {
 		loader: dataLoader("fields"),
 		schema: fieldsSchema,
 	}),
-	stream: defineCollection({
-		loader: dataLoader("stream"),
-		schema: streamSchema,
-	}),
 };

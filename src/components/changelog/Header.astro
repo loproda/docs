@@ -24,7 +24,7 @@ async function uniqueProducts(notes: Array<CollectionEntry<"changelog">>) {
 	return Promise.all(
 		unique.map(async (product) => {
 			return getEntry("products", product)!;
-		}),
+		})
 	);
 }
 
@@ -36,15 +36,10 @@ const products = await uniqueProducts(notes);
 >
 	<div class="text-center sm:text-left">
 		<h1>Changelog</h1>
-		<p>New updates and improvements at Cloudflare.</p>
+		<p>Nuevas actualizaciones y mejoras en Loproda.</p>
 		<p>
 			<RSSButton changelog="index" />
 			<br />
-			<RSSButton
-				href="/fundamentals/new-features/available-rss-feeds/"
-				text="View all RSS feeds"
-				icon="right-caret"
-			/>
 		</p>
 		<div class="not-content">
 			{

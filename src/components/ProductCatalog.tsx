@@ -74,14 +74,14 @@ const ProductCatalog = ({ products }: { products: ProductData[] }) => {
 				<input
 					type="text"
 					className="mb-8 w-full rounded-md border-2 border-gray-200 bg-white px-2 py-2 dark:border-gray-700 dark:bg-gray-800"
-					placeholder="Search products"
+					placeholder="Buscar"
 					value={filters.search}
 					onChange={(e) => setFilters({ ...filters, search: e.target.value })}
 				/>
 
 				<div className="mb-8! hidden md:block">
 					<span className="text-sm font-bold text-gray-600 uppercase dark:text-gray-200">
-						Groups
+						Categorías
 					</span>
 
 					{groups.map((group) => (

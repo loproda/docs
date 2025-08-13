@@ -73,6 +73,10 @@ export default defineConfig({
 			rehypeShiftHeadings,
 		],
 	},
+	i18n: {
+		locales: ["es"],
+		defaultLocale: "es",
+	},
 	experimental: {
 		contentIntellisense: true,
 	},

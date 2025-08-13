@@ -8,7 +8,6 @@ import "astro-breadcrumbs/breadcrumbs.css";
 import Description from "~/components/Description.astro";
 import SpotlightAuthorDetails from "~/components/SpotlightAuthorDetails.astro";
 import LastReviewed from "~/components/LastReviewed.astro";
-import CopyPageButton from "~/components/CopyPageButton.tsx";
 import ComponentUsage from "~/components/ComponentUsage.astro";
 
 import { getEntry } from "astro:content";
@@ -25,7 +24,7 @@ const slug = Astro.locals.starlightRoute.entry.slug;
 const breadcrumbProps: Record<string, any> = {
 	crumbs: [
 		{
-			text: "Products",
+			text: "Productos",
 			href: "/products/",
 		},
 	],
@@ -94,12 +93,6 @@ const hideBreadcrumbs = Astro.locals.starlightRoute.hideBreadcrumbs;
 					<polyline points="9 18 15 12 9 6" />
 				</svg>
 			</Breadcrumbs>
-		)
-	}
-
-	{
-		frontmatter.template !== "splash" && (
-			<CopyPageButton client:idle />
 		)
 	}
 </div>

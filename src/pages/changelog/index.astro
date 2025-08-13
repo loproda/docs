@@ -19,7 +19,7 @@ const notes = await getChangelogs({
 
 const props = {
 	frontmatter: {
-		title: "Changelogs",
+		title: "Historial de cambios",
 		tableOfContents: false,
 		template: "splash",
 		chatbot_deprioritize: true,
@@ -33,13 +33,13 @@ const props = {
 	<Header notes={notes} />
 	{
 		notes.map(async (entry, idx) => {
-			const date = format(entry.data.date, "MMM dd, yyyy");
+			const date = format(entry.data.date, "dd/MM/yyyy");
 
 			const productIds = entry.data.products.map((product) => product.id);
 
 			const productGroups = productsByGroup
 				.filter((group) =>
-					group[1]?.find((product) => productIds.includes(product.id)),
+					group[1]?.find((product) => productIds.includes(product.id))
 				)
 				.map((group) => group[0])
 				.sort();
@@ -52,9 +52,9 @@ const props = {
 					data-products={JSON.stringify(
 						productIds.concat(
 							productGroups.map((group) =>
-								group.replaceAll(" ", "-").toLowerCase(),
-							),
-						),
+								group.replaceAll(" ", "-").toLowerCase()
+							)
+						)
 					)}
 				>
 					<time
@@ -88,20 +88,20 @@ const props = {
 	<div class="flex items-center justify-center">
 		<button
 			id="changelogs-next-button"
-			class="bg-cl1-brand-orange text-cl1-black h-12 cursor-pointer rounded-sm px-6 font-medium"
+			class="bg-accent-500 hover:bg-accent-400 active:bg-accent-500 mr-2 flex items-center justify-center rounded-lg px-4 py-2 text-sm text-white no-underline transition-colors"
 		>
-			Load more items
+			Cargar más artículos
 		</button>
 	</div>
 </StarlightPage>
 
 <script>
 	const filter = document.querySelector<HTMLSelectElement>(
-		"#changelogs-next-filter",
+		"#changelogs-next-filter"
 	);
 
 	const button = document.querySelector<HTMLButtonElement>(
-		"#changelogs-next-button",
+		"#changelogs-next-button"
 	);
 
 	const url = new URL(window.location.href);
@@ -132,7 +132,7 @@ const props = {
 		]
 			.filter(
 				(e) =>
-					e.classList.contains("hidden!") && filterByProduct(e, filter!.value),
+					e.classList.contains("hidden!") && filterByProduct(e, filter!.value)
 			)
 			.slice(0, 10);
 

@@ -110,8 +110,6 @@ export async function getChangelogs({
 		}),
 	);
 
-	entries = entries.concat(await getWARPReleases());
-
 	if (filter) {
 		entries = entries.filter((e) => filter(e));
 	}

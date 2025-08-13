@@ -1,0 +1,17 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "com-loproda-docs",
+	"compatibility_date": "2025-08-12",
+	"compatibility_flags": ["node_compact"],
+	"assets": {
+		"directory": "./dist",
+		"not_found_handling": "404-page",
+		"run_worker_first": true,
+	},
+	"routes": [
+		{
+			"custom_domain": true,
+			"pattern": "docs.loproda.com",
+		},
+	],
+}

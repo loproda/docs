@@ -1,23 +1,39 @@
 ---
+import config from "virtual:starlight/user-config";
 import LanguageSelect from "@astrojs/starlight/components/LanguageSelect.astro";
-import SiteTitle from "@astrojs/starlight/components/SiteTitle.astro";
 import ThemeSelect from "@astrojs/starlight/components/ThemeSelect.astro";
+import Search from "virtual:starlight/components/Search";
 
 import HeaderDropdowns from "../HeaderDropdowns.tsx";
+
+const shouldRenderSearch =
+	config.pagefind ||
+	config.components.Search !== "@astrojs/starlight/components/Search.astro";
 ---
 
 <div class="flex h-full items-center justify-between gap-4">
-	<SiteTitle />
+	<a href="/" class="inline-flex items-center gap-1 no-underline">
+		<img
+			src="https://cdn.loproda.com/brand/loproda/logo100.png"
+			alt="Loproda"
+			width="32"
+			height="32"
+			class="rounded-md border border-zinc-200 dark:border-zinc-800"
+		/>
+		<span class="font-semibold text-zinc-950">Loproda docs</span>
+	</a>
 	<div class="flex gap-8">
-		<div id="docsearch">search</div>
+		<div id="docsearch">
+			{shouldRenderSearch && <Search />}
+		</div>
 		<div id="right-group" class="hidden h-10 flex-wrap gap-x-2 overflow-hidden">
 			<HeaderDropdowns client:idle />
 			<a
 				id="header-login-button"
-				href="https://dash.cloudflare.com/"
-				class="bg-cl1-brand-orange text-cl1-black mr-2 flex items-center justify-center rounded-sm px-6 font-medium no-underline"
+				href="https://my.loproda.com/"
+				class="bg-accent-500 hover:bg-accent-400 active:bg-accent-500 mr-2 flex items-center justify-center rounded-lg px-4 py-2 text-sm text-white no-underline transition-colors"
 			>
-				Log in
+				Iniciar sesión
 			</a>
 			<ThemeSelect />
 			<LanguageSelect />

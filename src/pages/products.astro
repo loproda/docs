@@ -12,7 +12,7 @@ let products: CollectionEntry<"products">[] = await getCollection(
 	"products",
 	(entry: CollectionEntry<"products">) => {
 		return entry.data.product?.show ?? true;
-	},
+	}
 );
 
 let productData: ProductData[] = products
@@ -36,9 +36,8 @@ let productData: ProductData[] = products
 
 const props = {
 	frontmatter: {
-		title: "Docs directory",
-		description:
-			"Explore the different areas of our documentation site.",
+		title: "Productos",
+		description: "Explora las diferentes productos.",
 		template: "splash",
 	},
 	hideBreadcrumbs: true,
