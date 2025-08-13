@@ -94,9 +94,6 @@ export default defineConfig({
 					href: "https://github.com/loproda/docs",
 				},
 			],
-			editLink: {
-				baseUrl: "https://github.com/loproda/docs/edit/production/",
-			},
 			components: {
 				Banner: "./src/components/overrides/Banner.astro",
 				Footer: "./src/components/overrides/Footer.astro",
