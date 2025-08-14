@@ -22,7 +22,8 @@
 		"start": "npx astro dev",
 		"sync": "npx astro sync",
 		"test": "npx vitest",
-		"lint": "npx eslint"
+		"lint": "npx eslint",
+		"new": "tsx ./scripts/create-content.ts"
 	},
 	"devDependencies": {
 		"@actions/core": "1.11.1",
@@ -86,6 +87,7 @@
 		"hast-util-to-text": "4.0.2",
 		"hastscript": "9.0.1",
 		"he": "1.2.0",
+		"inquirer": "12.9.2",
 		"jsonc-parser": "3.3.1",
 		"ldrs": "1.1.7",
 		"lz-string": "1.5.0",

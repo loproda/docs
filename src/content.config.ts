@@ -96,10 +96,6 @@ export const collections = {
 		loader: file("src/content/videos/index.yaml"),
 		schema: videosSchema,
 	}),
-	apps: defineCollection({
-		loader: file("src/content/apps/index.yaml"),
-		schema: appsSchema,
-	}),
 	"warp-releases": defineCollection({
 		loader: dataLoader("warp-releases"),
 		schema: warpReleasesSchema,
@@ -107,9 +103,5 @@ export const collections = {
 	"release-notes": defineCollection({
 		loader: dataLoader("release-notes"),
 		schema: releaseNotesSchema,
-	}),
-	fields: defineCollection({
-		loader: dataLoader("fields"),
-		schema: fieldsSchema,
 	}),
 };
