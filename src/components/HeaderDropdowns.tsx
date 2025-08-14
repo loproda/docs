@@ -1,4 +1,7 @@
-const links = [{ label: "Productos", href: "/products/" }];
+const links = [
+	{ label: "Productos", href: "/products/" },
+	{ label: "Historial de cambios", href: "/changelog/" },
+];
 
 export default function HeaderDropdownsComponent() {
 	return (

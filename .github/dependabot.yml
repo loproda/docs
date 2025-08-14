@@ -6,8 +6,6 @@ updates:
     commit-message:
       prefix: "[Docs Site] "
     schedule:
-      interval: "daily"
+      interval: "weekly"
     assignees:
-      - "KianNH"
-    reviewers:
-      - "KianNH"
+      - "fvcoder"

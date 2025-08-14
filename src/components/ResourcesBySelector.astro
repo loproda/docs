@@ -6,9 +6,8 @@ import ResourcesBySelectorReact from "./ResourcesBySelector";
 type Props = z.input<typeof props>;
 
 type DocsData = keyof CollectionEntry<"docs">["data"];
-type VideosData = keyof CollectionEntry<"stream">["data"];
 
-type ResourcesData = DocsData | VideosData;
+type ResourcesData = DocsData;
 
 const props = z.object({
 	tags: z.string().array().optional(),
@@ -20,28 +19,23 @@ const props = z.object({
 });
 
 const { tags, types, products, directory, filterables, columns } = props.parse(
-	Astro.props,
+	Astro.props
 );
 
 const docs = await getCollection("docs");
-const videos = await getCollection("stream");
 
-const resources: Array<CollectionEntry<"docs"> | CollectionEntry<"stream">> = [
-	...docs,
-	...videos,
-].filter(({ id, collection, data }) => {
-	const type = "pcx_content_type" in data ? data.pcx_content_type : collection;
-	return (
-		types.includes(type ?? "") &&
-		(directory ? id.startsWith(directory) : true) &&
-		(tags ? data.tags?.some((v: string) => tags.includes(v)) : true) &&
-		(products
-			? data.products?.some((v) =>
-					products.includes(typeof v === "object" ? v.id : v),
-				)
-			: true)
-	);
-});
+const resources: Array<CollectionEntry<"docs">> = [...docs].filter(
+	({ id, collection, data }) => {
+		const type =
+			"pcx_content_type" in data ? data.pcx_content_type : collection;
+		return (
+			types.includes(type ?? "") &&
+			(directory ? id.startsWith(directory) : true) &&
+			(tags ? data.tags?.some((v: string) => tags.includes(v)) : true) &&
+			(products ? data.products?.some((v) => products.includes(v)) : true)
+		);
+	}
+);
 
 const facets = resources.reduce(
 	(acc, page) => {
@@ -60,7 +54,7 @@ const facets = resources.reduce(
 
 		return acc;
 	},
-	{} as Record<string, string[]>,
+	{} as Record<string, string[]>
 );
 ---
 

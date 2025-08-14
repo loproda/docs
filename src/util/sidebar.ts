@@ -29,22 +29,8 @@ export async function getSidebar(context: AstroGlobal) {
 		throw new Error(`[Sidebar] Splitting ${pathname} resulted in 0 segments`);
 	}
 
-	let key: string;
+	let key: string = product;
 	let module: string | undefined;
-	if (product === "learning-paths") {
-		module = segments.at(1);
-
-		if (!module) {
-			throw new Error(
-				`[Sidebar] Unable to get the learning path module name from ${segments}`,
-			);
-		}
-
-		key = product.concat(module);
-	} else {
-		key = product;
-	}
-
 	let memoized = sidebars.get(key);
 
 	if (!memoized) {
@@ -330,17 +316,7 @@ function inferBadgeVariant(badge: Badge) {
 	return badge;
 }
 
-export const lookupProductTitle = async (product: string, module: string) => {
-	if (product === "learning-paths") {
-		const entry = await getEntry("learning-paths", module);
-
-		return `${entry?.data?.title} (Learning Paths)`;
-	} else if (product === "1.1.1.1") {
-		const entry = await getEntry("products", "1111");
-
-		return entry?.data?.product?.title;
-	}
-
+export const lookupProductTitle = async (product: string) => {
 	const entry = await getEntry("products", product);
 
 	return entry?.data?.product?.title ?? "Unknown";

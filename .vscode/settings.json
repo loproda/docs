@@ -8,5 +8,12 @@
 		"__redirects": "plaintext",
 		"_headers": "plaintext"
 	},
-	"cSpell.words": ["astrojs", "autogen", "frontmatter", "Logup", "loproda"]
+	"cSpell.words": [
+		"astrojs",
+		"autogen",
+		"frontmatter",
+		"Logup",
+		"loproda",
+		"vfile"
+	]
 }

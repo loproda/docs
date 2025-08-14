@@ -3,12 +3,11 @@ import ReactSelect from "./ReactSelect";
 import type { CollectionEntry } from "astro:content";
 
 type DocsData = keyof CollectionEntry<"docs">["data"];
-type VideosData = keyof CollectionEntry<"stream">["data"];
 
-type ResourcesData = DocsData | VideosData;
+type ResourcesData = DocsData;
 
 interface Props {
-	resources: Array<CollectionEntry<"docs"> | CollectionEntry<"stream">>;
+	resources: Array<CollectionEntry<"docs">>;
 	facets: Record<string, string[]>;
 	filters?: ResourcesData[];
 	columns: number;
@@ -84,10 +83,7 @@ export default function ResourcesBySelector({
 				className={`grid ${columns === 2 ? "md:grid-cols-2" : "md:grid-cols-3"} grid-cols-1 gap-4`}
 			>
 				{visibleResources.map((page) => {
-					const href =
-						page.collection === "stream"
-							? `/videos/${page.data.url}/`
-							: `/${page.id}/`;
+					const href = `/${page.id}/`;
 
 					return (
 						<a
