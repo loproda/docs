@@ -12,8 +12,10 @@
 		"astrojs",
 		"autogen",
 		"frontmatter",
+		"github",
 		"Logup",
 		"loproda",
+		"malito",
 		"vfile"
 	]
 }

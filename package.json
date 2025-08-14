@@ -5,10 +5,8 @@
 	"scripts": {
 		"astro": "npx astro",
 		"build": "npx astro build",
-		"typegen:worker": "npx wrangler types ./worker/worker-configuration.d.ts",
 		"check": "npm run check:astro && npm run check:worker",
 		"check:astro": "npx astro check",
-		"check:worker": "npx tsc --noEmit -p ./worker/tsconfig.json",
 		"dev": "npx astro dev",
 		"format": "npm run format:core:fix && npm run format:data",
 		"format:core": "npx prettier \"**/*.{js,jsx,ts,tsx,mjs,css}\"",
