@@ -28,37 +28,41 @@ const shouldChatbotDeprioritize =
 	frontmatter.chatbot_deprioritize;
 
 if (currentSection) {
-	const product = await getEntry("products", currentSection);
+	let product = await getEntry("products", currentSection);
+	if (currentSection === "changelog") {
+		const products = frontmatter.products;
+		if (products) {
+			product = await getEntry("products", products[0]);
+		}
+	}
 
 	if (product) {
-		if (product.data.meta.title) {
-			const titleIdx = head.findIndex((x) => x.tag === "title");
+		let productMetaName = product.data.meta.title
+			? product.data.meta.title
+			: "Loproda Docs";
 
-			let title: string;
-
-			if (titleIdx !== -1) {
-				const existingTitle = head[titleIdx].content?.split(
-					` ${DEFAULT_TITLE_DELIMITER} `
-				)[0];
-				title = `${existingTitle} · ${product.data.meta.title}`;
-
-				head[titleIdx] = {
-					tag: "title",
-					content: title,
-				};
-			} else {
-				title = `${frontmatter.title} · ${product.data.meta.title}`;
-				head.push({
-					tag: "title",
-					content: title,
-				});
-			}
-
-			metaTags.push({
-				property: "og:title",
-				content: title,
-			});
+		if (currentSection === "changelog") {
+			productMetaName = "Changelog";
 		}
+
+		const titleIdx = head.findIndex((x) => x.tag === "title");
+		let title: string;
+
+		const existingTitle = head[titleIdx].content
+			? head[titleIdx].content?.split(` ${DEFAULT_TITLE_DELIMITER} `)[0]
+			: frontmatter.title;
+
+		title = `${existingTitle} · ${productMetaName}`;
+
+		head[titleIdx] = {
+			tag: "title",
+			content: title,
+		};
+
+		metaTags.push({
+			property: "og:title",
+			content: title,
+		});
 
 		if (product.data.product.title) {
 			["pcx_product", "algolia_product_filter"].map((name) => {
@@ -185,6 +189,16 @@ metaTags.map((attrs) => {
 		attrs,
 	});
 });
+
+const headTitle = head.findIndex((t) => t.tag === "title");
+if (headTitle !== -1) {
+	if (head[headTitle].content?.endsWith("undefined")) {
+		head[headTitle].content = head[headTitle].content.replace(
+			"undefined",
+			"Loproda Docs"
+		);
+	}
+}
 ---
 
 <script src="src/scripts/footnotes.ts"></script>

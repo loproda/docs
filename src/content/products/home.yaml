@@ -1,0 +1,9 @@
+meta:
+  title: Loproda Docs
+  description: Explore la documentación de productos más reciente, incluidas guías prácticas, tutoriales, referencias de API y códigos de muestra.
+  author: "@fvcoder"
+
+product:
+  title: Home page
+  url: /
+  show: false

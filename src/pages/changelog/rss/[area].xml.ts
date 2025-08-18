@@ -53,9 +53,9 @@ export const GET: APIRoute<Props, Params> = async ({ props, locals }) => {
 	});
 
 	return rss({
-		title: `Cloudflare changelogs | ${title}`,
-		description: `Cloudflare changelogs for ${title} products`,
-		site: "https://developers.cloudflare.com/changelog/",
+		title: `Loproda changelogs | ${title}`,
+		description: `Loproda changelogs for ${title} products`,
+		site: "https://docs.loproda.com/changelog/",
 		items,
 	});
 };
