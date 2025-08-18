@@ -140,7 +140,19 @@
 	--color-cl1-gray-8: #d9d9d9;
 	--color-cl1-gray-9: #f2f2f2;
 
-	--color-cl1-brand-orange: #f6821f;
+	--color-orange-50: #f6f2ff;
+	--color-orange-100: #ede8ff;
+	--color-orange-200: #ddd4ff;
+	--color-orange-300: #c6b1ff;
+	--color-orange-400: #aa85ff;
+	--color-orange-500: #8e51ff;
+	--color-orange-600: #8230f7;
+	--color-orange-700: #741ee3;
+	--color-orange-800: #6118bf;
+	--color-orange-900: #50169c;
+	--color-orange-950: #310b6a;
+
+	--color-cl1-brand-orange: #8e51ff;
 }
 
 @layer base {
@@ -156,11 +168,11 @@
 		--sidebar-blue-accent-600: rgba(62, 116, 255, 0.2);
 		--sidebar-blue-text: rgb(0, 43, 103);
 
-		--orange-accent-200: rgb(246, 130, 31);
-		--orange-accent-600: rgb(255, 102, 51);
+		--orange-accent-200: #ddd6ff;
+		--orange-accent-600: #7f22fe;
 		--orange-accent-900: rgb(0, 0, 0);
 
-		--sidebar-orange-accent-600: rgba(246, 130, 31, 0.2);
+		--sidebar-orange-accent-600: rgba(96, 31, 246, 0.2);
 
 		--tw-accent-200: var(--blue-accent-200);
 		--tw-accent-600: var(--blue-accent-600);
