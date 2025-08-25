@@ -57,7 +57,7 @@
 		"@types/he": "1.2.3",
 		"@types/mdast": "4.0.4",
 		"@types/node": "24.2.1",
-		"@types/react": "19.1.10",
+		"@types/react": "19.1.11",
 		"@types/react-dom": "19.1.7",
 		"@types/unist": "3.0.3",
 		"@typescript-eslint/parser": "8.39.1",
